@@ -1,80 +1,1565 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reshi Clothes</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reshi Clothing House - Premium Fashion Collection</title>
+    <meta name="description" content="Discover premium fashion at Reshi Clothing House. Curated collection of contemporary clothing with sophisticated style and quality craftsmanship.">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "Reshi Clothing House",
+        "description": "Premium fashion collection with contemporary clothing",
+        "url": "https://reshiclothing.com",
+        "sameAs": []
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'typewriter': 'typewriter 4s steps(40) infinite',
+                        'fly-to-cart': 'flyToCart 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-in': 'slideIn 0.3s ease-out forwards',
+                    },
+                    keyframes: {
+                        typewriter: {
+                            '0%, 50%': { width: '0' },
+                            '10%, 40%': { width: '100%' },
+                        },
+                        flyToCart: {
+                            '0%': { transform: 'scale(1) translateY(0)', opacity: '1' },
+                            '50%': { transform: 'scale(0.8) translateY(-20px)', opacity: '0.8' },
+                            '100%': { transform: 'scale(0.3) translate(300px, -100px)', opacity: '0' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid currentColor;
+            white-space: nowrap;
+            animation: typewriter 4s steps(40) infinite;
+        }
+        
+        .fade-in-up {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .dark .hover-lift:hover {
+            box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+        }
+        
+        .product-zoom {
+            transition: transform 0.3s ease;
+        }
+        
+        .product-zoom:hover {
+            transform: scale(1.05);
+        }
+        
+        .cart-badge {
+            animation: bounce 0.5s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .mini-cart {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mini-cart.open {
+            transform: translateX(0);
+        }
+        
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        
+        .dark .overlay {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
-<body>
-
-<header>
-  <h1>Reshi Clothes</h1>
-  <p>Your fashion, our passion</p>
-</header>
-
-<nav>
-  <a href="#products">Products</a>
-  <a href="#order">Order Now</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<div class="container">
-  <!-- Products Section -->
-  <section id="products">
-    <h2>Our Collection</h2>
-    <div class="products">
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80
-alt="Shirt">
-        <h3>Men's Shirt</h3>
-        <p>Rs 400</p>
-        <button class="btn order-btn">Order Now</button>
-      </div>
-      <div class="product">
-        <img src="<img src=<img src="https://i.postimg.cc/dtMbQmjX/women-dress-200.jpg" alt="Dress">
- alt="Dress">
-
- alt="Dress">
-        <h3>Women's Dress</h3>
-        <p>Rs 600</p>
-        <button class="btn order-btn">Order Now</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/200" alt="Kids Wear">
-        <h3>Kids Wear</h3>
-        <p>Rs 300</p>
-        <button class="btn order-btn">Order Now</button>
-      </div>
+<body class="font-sans transition-colors duration-300 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="font-serif text-xl font-bold">
+                        <a href="#/" class="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                            Reshi Clothing House
+                        </a>
+                    </h1>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-8">
+                        <a href="#/" class="nav-link">Home</a>
+                        <a href="#/products" class="nav-link">Products</a>
+                        <a href="#/account" class="nav-link">Account</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="search-btn" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" aria-label="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                    <button id="theme-toggle" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" aria-label="Toggle theme">
+                        <svg id="sun-icon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <button id="cart-btn" class="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" aria-label="Cart">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5-5M7 13l-2.5 5M17 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"></path>
+                        </svg>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-black dark:bg-white text-white dark:text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">0</span>
+                    </button>
+                    <button id="menu-btn" class="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" aria-label="Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#/" class="block px-3 py-2 nav-link">Home</a>
+                <a href="#/products" class="block px-3 py-2 nav-link">Products</a>
+                <a href="#/account" class="block px-3 py-2 nav-link">Account</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Search Modal -->
+    <div id="search-modal" class="fixed inset-0 z-50 hidden">
+        <div class="overlay fixed inset-0" id="search-overlay"></div>
+        <div class="fixed inset-x-4 top-20 bg-white dark:bg-gray-800 rounded-lg shadow-xl z-10 max-w-2xl mx-auto">
+            <div class="p-4">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="" class="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    <svg class="absolute left-3 top-3 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <div id="search-results" class="mt-4 max-h-96 overflow-y-auto"></div>
+            </div>
+        </div>
     </div>
-  </section>
-
-  <!-- Order Form -->
-  <section id="order">
-    <h2>Place Your Order</h2>
-    <form id="orderForm">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <input type="text" placeholder="Product Name" required>
-      <input type="number" placeholder="Quantity" required>
-      <textarea placeholder="Delivery Address" required></textarea>
-      <button type="submit" class="btn">Submit Order</button>
-    </form>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: support@reshiclothes.com</p>
-    <p>Phone: +91 9541342297</p>
-    <p>Address: Kunzer baramullah, Kashmir</p>
-  </section>
-</div>
-
-<footer>
-  <p>&copy; 2025 Reshi Clothes. All rights reserved.</p>
-</footer>
-
-<script src="script.js"></script>
+    
+    <!-- Mini Cart -->
+    <div id="mini-cart" class="mini-cart fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 shadow-xl z-40">
+        <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-medium">Shopping Cart</h3>
+                <button id="close-cart" class="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded" aria-label="Close cart">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mini-cart-items" class="flex-1 overflow-y-auto p-4"></div>
+        <div class="border-t border-gray-200 dark:border-gray-700 p-4">
+            <div class="flex justify-between mb-4">
+                <span class="font-medium">Total:</span>
+                <span id="mini-cart-total" class="font-bold">$0.00</span>
+            </div>
+            <button onclick="navigateTo('/cart')" class="w-full bg-black dark:bg-white text-white dark:text-black py-2 px-4 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
+                View Cart
+            </button>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="pt-16 min-h-screen">
+        <!-- Home Page -->
+        <section id="home-page" class="page">
+            <!-- Hero Section -->
+            <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 py-20 md:py-32">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center">
+                        <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-6 fade-in-up">
+                            Reshi Clothing House
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto fade-in-up">
+                            Discover premium fashion with contemporary style and sophisticated elegance
+                        </p>
+                        <div class="relative inline-block mb-8">
+                            <input type="text" id="hero-search" placeholder="" class="typewriter px-6 py-3 text-lg border-2 border-gray-300 dark:border-gray-600 rounded-full focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white min-w-80">
+                        </div>
+                        <div>
+                            <button onclick="navigateTo('/products')" class="bg-black dark:bg-white text-white dark:text-black px-8 py-4 text-lg font-medium rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+                                Shop Collection
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Products -->
+            <div class="py-16 bg-white dark:bg-gray-900">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl font-serif font-bold text-center mb-12">Featured Collection</h2>
+                    <div id="featured-products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Products Page -->
+        <section id="products-page" class="page hidden py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-serif font-bold mb-6">All Products</h1>
+                    
+                    <!-- Filters and Sort -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                        <div class="flex flex-wrap gap-4">
+                            <select id="category-filter" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+                                <option value="">All Categories</option>
+                                <option value="dress">Dresses</option>
+                                <option value="top">Tops</option>
+                                <option value="bottom">Bottoms</option>
+                                <option value="outerwear">Outerwear</option>
+                            </select>
+                            <select id="size-filter" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+                                <option value="">All Sizes</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </div>
+                        <select id="sort-select" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+                            <option value="default">Sort by</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name A-Z</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+            </div>
+        </section>
+        
+        <!-- Product Detail Page -->
+        <section id="product-page" class="page hidden py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div id="product-detail" class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Product images will be inserted here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Cart Page -->
+        <section id="cart-page" class="page hidden py-8">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-serif font-bold mb-8">Shopping Cart</h1>
+                <div id="cart-content">
+                    <div id="cart-items"></div>
+                    <div id="cart-summary" class="mt-8 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Subtotal:</span>
+                                <span id="cart-subtotal">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Shipping:</span>
+                                <span id="cart-shipping">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Discount:</span>
+                                <span id="cart-discount" class="text-green-600 dark:text-green-400">-$0.00</span>
+                            </div>
+                            <hr class="border-gray-300 dark:border-gray-600">
+                            <div class="flex justify-between text-lg font-bold">
+                                <span>Total:</span>
+                                <span id="cart-final-total">$0.00</span>
+                            </div>
+                            <div class="mt-6">
+                                <input type="text" id="promo-code" placeholder="Enter promo code" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg mb-4 bg-white dark:bg-gray-700">
+                                <button id="apply-promo" class="w-full mb-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 py-2 px-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                                    Apply Promo Code
+                                </button>
+                                <button onclick="navigateTo('/checkout')" class="w-full bg-black dark:bg-white text-white dark:text-black py-3 px-6 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors font-medium">
+                                    Proceed to Checkout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="empty-cart" class="hidden text-center py-16">
+                    <svg class="w-24 h-24 mx-auto text-gray-300 dark:text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5-5M7 13l-2.5 5M17 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"></path>
+                    </svg>
+                    <h3 class="text-xl font-medium text-gray-500 dark:text-gray-400 mb-4">Your cart is empty</h3>
+                    <button onclick="navigateTo('/products')" class="bg-black dark:bg-white text-white dark:text-black px-6 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Checkout Page -->
+        <section id="checkout-page" class="page hidden py-8">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-serif font-bold mb-8">Checkout</h1>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <form id="checkout-form" action="https://formspree.io/f/your-form-id" method="POST">
+                            <input type="hidden" id="order-data" name="order">
+                            
+                            <div class="mb-6">
+                                <h3 class="text-lg font-medium mb-4">Shipping Information</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input type="text" name="firstName" required class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800" placeholder="First Name">
+                                    <input type="text" name="lastName" required class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800" placeholder="Last Name">
+                                </div>
+                                <input type="email" name="email" required class="w-full mt-4 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800" placeholder="Email">
+                                <input type="text" name="address" required class="w-full mt-4 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800" placeholder="Address">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                                    <input type="text" name="city" required class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800" placeholder="City">
+                                    <input type="text" name="state" required class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800" placeholder="State">
+                                    <input type="text" name="zip" required class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800" placeholder="ZIP Code">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h3 class="text-lg font-medium mb-4">Payment Information</h3>
+                                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                    This is a demo checkout. No actual payment will be processed.
+                                </p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input type="text" placeholder="Card Number" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+                                    <input type="text" placeholder="MM/YY" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+                                </div>
+                                <input type="text" placeholder="CVV" class="w-full mt-4 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-black dark:bg-white text-white dark:text-black py-3 px-6 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors font-medium">
+                                Place Order
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-lg font-medium mb-4">Order Summary</h3>
+                            <div id="checkout-items" class="space-y-4 mb-6"></div>
+                            <hr class="border-gray-300 dark:border-gray-600 mb-4">
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Subtotal:</span>
+                                    <span id="checkout-subtotal">$0.00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Shipping:</span>
+                                    <span id="checkout-shipping">$0.00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Tax:</span>
+                                    <span id="checkout-tax">$0.00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Discount:</span>
+                                    <span id="checkout-discount" class="text-green-600 dark:text-green-400">-$0.00</span>
+                                </div>
+                                <hr class="border-gray-300 dark:border-gray-600">
+                                <div class="flex justify-between text-lg font-bold">
+                                    <span>Total:</span>
+                                    <span id="checkout-total">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Order Confirmation Page -->
+        <section id="confirmation-page" class="page hidden py-8">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="bg-green-50 dark:bg-green-900/20 p-8 rounded-lg">
+                    <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <h1 class="text-3xl font-serif font-bold mb-4">Order Confirmed!</h1>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Thank you for your order. You will receive a confirmation email shortly.
+                    </p>
+                    <div id="order-details" class="bg-white dark:bg-gray-800 p-6 rounded-lg mb-6 text-left">
+                        <!-- Order details will be inserted here -->
+                    </div>
+                    <button onclick="navigateTo('/')" class="bg-black dark:bg-white text-white dark:text-black px-6 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Account Page -->
+        <section id="account-page" class="page hidden py-8">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-serif font-bold mb-8">My Account</h1>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div>
+                        <h2 class="text-xl font-medium mb-4">Order History</h2>
+                        <div id="order-history" class="space-y-4"></div>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-medium mb-4">Recently Viewed</h2>
+                        <div id="recently-viewed" class="space-y-4"></div>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-medium mb-4">Wishlist</h2>
+                        <div id="wishlist" class="space-y-4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 404 Page -->
+        <section id="404-page" class="page hidden py-16">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-6xl font-serif font-bold mb-4">404</h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                    Page not found. The page you're looking for doesn't exist.
+                </p>
+                <button onclick="navigateTo('/')" class="bg-black dark:bg-white text-white dark:text-black px-6 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
+                    Go Home
+                </button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-serif text-xl font-bold mb-4">Reshi Clothing House</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Premium fashion with contemporary style and sophisticated elegance.</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="#/" class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Home</a>
+                        <a href="#/products" class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Products</a>
+                        <a href="#/account" class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Account</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Customer Service</h4>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Contact Us</a>
+                        <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Shipping Info</a>
+                        <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Returns</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Follow Us</h4>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Instagram</a>
+                        <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Facebook</a>
+                        <a href="#" class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-600 dark:text-gray-300">&copy; 2025 Reshi Clothing House. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Product Data
+        const PRODUCTS = [
+            {
+                id: 1,
+                title: "Elegant Silk Dress",
+                price: 299.99,
+                description: "A stunning silk dress perfect for special occasions. Features a flowing silhouette and luxurious fabric.",
+                image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=600&fit=crop&crop=center",
+                images: [
+                    "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=600&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1566479179817-c4c85ec4b6c5?w=400&h=600&fit=crop&crop=center"
+                ],
+                category: "dress",
+                tags: ["elegant", "silk", "formal"],
+                variants: {
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    colors: ["Black", "Navy", "Burgundy"]
+                }
+            },
+            {
+                id: 2,
+                title: "Classic White Blouse",
+                price: 89.99,
+                description: "A timeless white blouse that pairs perfectly with any outfit. Made from premium cotton.",
+                image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=600&fit=crop&crop=center",
+                images: [
+                    "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=600&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=400&h=600&fit=crop&crop=center"
+                ],
+                category: "top",
+                tags: ["classic", "cotton", "versatile"],
+                variants: {
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    colors: ["White", "Cream"]
+                }
+            },
+            {
+                id: 3,
+                title: "Designer Denim Jacket",
+                price: 199.99,
+                description: "A contemporary denim jacket with modern cuts and premium denim fabric.",
+                image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=600&fit=crop&crop=center",
+                images: [
+                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=600&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1559589689-577aabd1db4f?w=400&h=600&fit=crop&crop=center"
+                ],
+                category: "outerwear",
+                tags: ["denim", "casual", "versatile"],
+                variants: {
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    colors: ["Light Blue", "Dark Blue", "Black"]
+                }
+            },
+            {
+                id: 4,
+                title: "High-Waisted Trousers",
+                price: 149.99,
+                description: "Sophisticated high-waisted trousers perfect for both office and casual wear.",
+                image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=600&fit=crop&crop=center",
+                images: [
+                    "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=600&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1506629905607-d0f51d1e2a15?w=400&h=600&fit=crop&crop=center"
+                ],
+                category: "bottom",
+                tags: ["trousers", "professional", "comfortable"],
+                variants: {
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    colors: ["Black", "Navy", "Charcoal"]
+                }
+            },
+            {
+                id: 5,
+                title: "Floral Summer Dress",
+                price: 129.99,
+                description: "A light and airy floral dress perfect for summer occasions.",
+                image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=600&fit=crop&crop=center",
+                images: [
+                    "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=600&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1583846112320-1e7e9ad1c2d8?w=400&h=600&fit=crop&crop=center"
+                ],
+                category: "dress",
+                tags: ["floral", "summer", "casual"],
+                variants: {
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    colors: ["Floral Print", "Blue Floral"]
+                }
+            },
+            {
+                id: 6,
+                title: "Minimalist Tank Top",
+                price: 49.99,
+                description: "A simple yet elegant tank top that's perfect for layering.",
+                image: "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=400&h=600&fit=crop&crop=center",
+                images: [
+                    "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=400&h=600&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop&crop=center"
+                ],
+                category: "top",
+                tags: ["minimalist", "basic", "layering"],
+                variants: {
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    colors: ["White", "Black", "Gray", "Beige"]
+                }
+            },
+            {
+                id: 7,
+                title: "Wool Blend Coat",
+                price: 349.99,
+                description: "A luxurious wool blend coat for the colder months. Features classic tailoring.",
+                image: "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=400&h=600&fit=crop&crop=center",
+                images: [
+                    "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=400&h=600&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=400&h=600&fit=crop&crop=center"
+                ],
+                category: "outerwear",
+                tags: ["wool", "luxury", "winter"],
+                variants: {
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    colors: ["Camel", "Black", "Navy"]
+                }
+            },
+            {
+                id: 8,
+                title: "Vintage-Style Skirt",
+                price: 79.99,
+                description: "A vintage-inspired A-line skirt with modern tailoring and quality fabric.",
+                image: "https://images.unsplash.com/photo-1583846112320-1e7e9ad1c2d8?w=400&h=600&fit=crop&crop=center",
+                images: [
+                    "https://images.unsplash.com/photo-1583846112320-1e7e9ad1c2d8?w=400&h=600&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1559589650-2e8c6b7b5b61?w=400&h=600&fit=crop&crop=center"
+                ],
+                category: "bottom",
+                tags: ["vintage", "retro", "feminine"],
+                variants: {
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    colors: ["Black", "Navy", "Burgundy"]
+                }
+            },
+            {
+                id: 9,
+                title: "Cashmere Sweater",
+                price: 249.99,
+                description: "A soft and luxurious cashmere sweater that's perfect for layering or wearing alone.",
+                image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=600&fit=crop&crop=center",
+                images: [
+                    "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=600&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1583743814966-8936f37f26db?w=400&h=600&fit=crop&crop=center"
+                ],
+                category: "top",
+                tags: ["cashmere", "luxury", "comfortable"],
+                variants: {
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    colors: ["Cream", "Gray", "Camel", "Black"]
+                }
+            }
+        ];
+        
+        // State Management
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+        let orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+        let currentRoute = '/';
+        let appliedPromo = JSON.parse(localStorage.getItem('appliedPromo')) || null;
+        let isDarkMode = localStorage.getItem('theme') === 'dark';
+        
+        // Search placeholders for typewriter effect
+        const searchPlaceholders = [
+            "Search for dresses...",
+            "Find your style...",
+            "Discover fashion...",
+            "Look for trends..."
+        ];
+        
+        // Promo codes
+        const promoCodes = {
+            'RESHI10': { type: 'percentage', value: 10, description: '10% off' },
+            'FREESHIP': { type: 'shipping', value: 0, description: 'Free shipping' },
+            'WELCOME20': { type: 'percentage', value: 20, description: '20% off your first order' },
+            'SAVE50': { type: 'fixed', value: 50, description: '$50 off orders over $200' }
+        };
+        
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+        
+        function initializeApp() {
+            // Set initial theme
+            if (isDarkMode) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Setup routing
+            setupRouting();
+            
+            // Initialize typewriter effect
+            initTypewriterEffect();
+            
+            // Update cart count
+            updateCartCount();
+            
+            // Handle initial route
+            handleRoute();
+        }
+        
+        function setupEventListeners() {
+            // Theme toggle
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            
+            // Navigation
+            document.getElementById('menu-btn').addEventListener('click', toggleMobileMenu);
+            
+            // Search
+            document.getElementById('search-btn').addEventListener('click', openSearchModal);
+            document.getElementById('search-overlay').addEventListener('click', closeSearchModal);
+            document.getElementById('search-input').addEventListener('input', handleSearch);
+            document.getElementById('hero-search').addEventListener('focus', function() {
+                openSearchModal();
+                document.getElementById('search-input').focus();
+            });
+            
+            // Cart
+            document.getElementById('cart-btn').addEventListener('click', toggleMiniCart);
+            document.getElementById('close-cart').addEventListener('click', closeMiniCart);
+            
+            // Product filters and sorting
+            document.getElementById('category-filter')?.addEventListener('change', filterProducts);
+            document.getElementById('size-filter')?.addEventListener('change', filterProducts);
+            document.getElementById('sort-select')?.addEventListener('change', sortProducts);
+            
+            // Promo code
+            document.getElementById('apply-promo')?.addEventListener('click', applyPromoCode);
+            
+            // Checkout form
+            document.getElementById('checkout-form')?.addEventListener('submit', handleCheckout);
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', handleKeyboardShortcuts);
+            
+            // Handle clicks on nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#/')) {
+                        navigateTo(href.substring(1));
+                    }
+                });
+            });
+        }
+        
+        function setupRouting() {
+            window.addEventListener('hashchange', handleRoute);
+            window.addEventListener('popstate', handleRoute);
+        }
+        
+        function handleRoute() {
+            const hash = window.location.hash || '#/';
+            const route = hash.substring(1) || '/';
+            currentRoute = route;
+            
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show appropriate page
+            if (route === '/' || route === '') {
+                showPage('home-page');
+                renderFeaturedProducts();
+            } else if (route === '/products') {
+                showPage('products-page');
+                renderProducts();
+            } else if (route.startsWith('/product/')) {
+                const productId = parseInt(route.split('/')[2]);
+                showPage('product-page');
+                renderProductDetail(productId);
+            } else if (route === '/cart') {
+                showPage('cart-page');
+                renderCart();
+            } else if (route === '/checkout') {
+                showPage('checkout-page');
+                renderCheckout();
+            } else if (route === '/confirmation') {
+                showPage('confirmation-page');
+                renderOrderConfirmation();
+            } else if (route === '/account') {
+                showPage('account-page');
+                renderAccount();
+            } else {
+                showPage('404-page');
+            }
+            
+            // Update nav active states
+            updateNavigation();
+            
+            // Close mobile menu
+            closeMobileMenu();
+            
+            // Save current route
+            localStorage.setItem('lastRoute', route);
+        }
+        
+        function navigateTo(route) {
+            window.location.hash = route;
+        }
+        
+        function showPage(pageId) {
+            const page = document.getElementById(pageId);
+            if (page) {
+                page.classList.remove('hidden');
+                page.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        function updateNavigation() {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === '#' + currentRoute) {
+                    link.classList.add('text-black', 'dark:text-white', 'font-medium');
+                } else {
+                    link.classList.remove('text-black', 'dark:text-white', 'font-medium');
+                    link.classList.add('text-gray-600', 'dark:text-gray-300');
+                }
+            });
+        }
+        
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            document.documentElement.classList.toggle('dark', isDarkMode);
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+        
+        function initTypewriterEffect() {
+            const heroSearch = document.getElementById('hero-search');
+            let currentPlaceholder = 0;
+            
+            function updatePlaceholder() {
+                heroSearch.placeholder = searchPlaceholders[currentPlaceholder];
+                currentPlaceholder = (currentPlaceholder + 1) % searchPlaceholders.length;
+            }
+            
+            updatePlaceholder();
+            setInterval(updatePlaceholder, 4000);
+        }
+        
+        function openSearchModal() {
+            document.getElementById('search-modal').classList.remove('hidden');
+            document.getElementById('search-input').focus();
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeSearchModal() {
+            document.getElementById('search-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+            document.getElementById('search-input').value = '';
+            document.getElementById('search-results').innerHTML = '';
+        }
+        
+        function handleSearch(e) {
+            const query = e.target.value.toLowerCase();
+            const resultsContainer = document.getElementById('search-results');
+            
+            if (query.length === 0) {
+                resultsContainer.innerHTML = '';
+                return;
+            }
+            
+            const results = PRODUCTS.filter(product => 
+                product.title.toLowerCase().includes(query) ||
+                product.description.toLowerCase().includes(query) ||
+                product.tags.some(tag => tag.toLowerCase().includes(query))
+            );
+            
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p class="text-gray-500 p-4">No products found</p>';
+                return;
+            }
+            
+            resultsContainer.innerHTML = results.map(product => `
+                <div class="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg cursor-pointer" onclick="navigateTo('/product/${product.id}'); closeSearchModal();">
+                    <img src="${product.image}" alt="${product.title}" class="w-12 h-12 object-cover rounded">
+                    <div class="ml-3">
+                        <h4 class="font-medium">${product.title}</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">$${product.price}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function handleKeyboardShortcuts(e) {
+            if (e.ctrlKey || e.metaKey) return;
+            
+            switch(e.key.toLowerCase()) {
+                case 'g':
+                    if (document.activeElement.tagName !== 'INPUT') {
+                        e.preventDefault();
+                        openSearchModal();
+                    }
+                    break;
+                case 'c':
+                    if (document.activeElement.tagName !== 'INPUT') {
+                        e.preventDefault();
+                        toggleMiniCart();
+                    }
+                    break;
+                case 'escape':
+                    closeSearchModal();
+                    closeMiniCart();
+                    break;
+            }
+        }
+        
+        function renderFeaturedProducts() {
+            const container = document.getElementById('featured-products');
+            const featured = PRODUCTS.slice(0, 6);
+            
+            container.innerHTML = featured.map(product => createProductCard(product)).join('');
+        }
+        
+        function renderProducts() {
+            const container = document.getElementById('products-grid');
+            container.innerHTML = PRODUCTS.map(product => createProductCard(product)).join('');
+        }
+        
+        function filterProducts() {
+            const categoryFilter = document.getElementById('category-filter').value;
+            const sizeFilter = document.getElementById('size-filter').value;
+            
+            let filtered = PRODUCTS.filter(product => {
+                const categoryMatch = !categoryFilter || product.category === categoryFilter;
+                const sizeMatch = !sizeFilter || product.variants.sizes.includes(sizeFilter);
+                return categoryMatch && sizeMatch;
+            });
+            
+            const container = document.getElementById('products-grid');
+            container.innerHTML = filtered.map(product => createProductCard(product)).join('');
+        }
+        
+        function sortProducts() {
+            const sortValue = document.getElementById('sort-select').value;
+            let sorted = [...PRODUCTS];
+            
+            switch(sortValue) {
+                case 'price-low':
+                    sorted.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    sorted.sort((a, b) => a.title.localeCompare(b.title));
+                    break;
+            }
+            
+            const container = document.getElementById('products-grid');
+            container.innerHTML = sorted.map(product => createProductCard(product)).join('');
+        }
+        
+        function createProductCard(product) {
+            const isInWishlist = wishlist.some(item => item.id === product.id);
+            
+            return `
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover-lift overflow-hidden fade-in-up">
+                    <div class="relative group">
+                        <img src="${product.image}" alt="${product.title}" class="w-full h-64 object-cover product-zoom">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 space-x-2">
+                                <button onclick="quickAddToCart(${product.id})" class="bg-white text-black px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">
+                                    Quick Add
+                                </button>
+                                <button onclick="toggleWishlist(${product.id})" class="bg-white text-black p-2 rounded-full hover:bg-gray-100 transition-colors">
+                                    ${isInWishlist ? '❤️' : '🤍'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-lg mb-2">
+                            <a href="#/product/${product.id}" class="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                                ${product.title}
+                            </a>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">${product.description.substring(0, 100)}...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$${product.price}</span>
+                            <button onclick="navigateTo('/product/${product.id}')" class="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderProductDetail(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) {
+                navigateTo('/404');
+                return;
+            }
+            
+            // Add to recently viewed
+            addToRecentlyViewed(product);
+            
+            const container = document.getElementById('product-detail');
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-2">
+                            <img id="main-image" src="${product.images[0]}" alt="${product.title}" class="w-full h-96 object-cover rounded-lg">
+                        </div>
+                        ${product.images.map((img, index) => `
+                            <img src="${img}" alt="${product.title}" class="w-full h-32 object-cover rounded-lg cursor-pointer hover:ring-2 hover:ring-black dark:hover:ring-white transition-all" onclick="changeMainImage('${img}')">
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h1 class="text-3xl font-serif font-bold mb-2">${product.title}</h1>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">$${product.price}</p>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">${product.description}</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Size</label>
+                            <select id="size-select" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+                                ${product.variants.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Color</label>
+                            <select id="color-select" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+                                ${product.variants.colors.map(color => `<option value="${color}">${color}</option>`).join('')}
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Quantity</label>
+                            <input type="number" id="quantity-input" value="1" min="1" max="10" class="w-20 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <button onclick="addToCart(${product.id})" class="w-full bg-black dark:bg-white text-white dark:text-black py-3 px-6 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors font-medium">
+                            Add to Cart
+                        </button>
+                        <button onclick="toggleWishlist(${product.id})" class="w-full border border-gray-300 dark:border-gray-600 py-3 px-6 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            ${wishlist.some(item => item.id === product.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}
+                        </button>
+                    </div>
+                    
+                    <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+                        <h3 class="font-medium mb-2">Product Details</h3>
+                        <div class="space-y-1 text-sm text-gray-600 dark:text-gray-300">
+                            <p>Category: ${product.category}</p>
+                            <p>Tags: ${product.tags.join(', ')}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function changeMainImage(src) {
+            document.getElementById('main-image').src = src;
+        }
+        
+        function addToRecentlyViewed(product) {
+            recentlyViewed = recentlyViewed.filter(item => item.id !== product.id);
+            recentlyViewed.unshift(product);
+            recentlyViewed = recentlyViewed.slice(0, 5);
+            localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+        }
+        
+        function toggleWishlist(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            const existingIndex = wishlist.findIndex(item => item.id === productId);
+            
+            if (existingIndex > -1) {
+                wishlist.splice(existingIndex, 1);
+            } else {
+                wishlist.push(product);
+            }
+            
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            
+            // Refresh current page if needed
+            if (currentRoute === '/account') {
+                renderAccount();
+            } else if (currentRoute.startsWith('/product/')) {
+                const currentProductId = parseInt(currentRoute.split('/')[2]);
+                renderProductDetail(currentProductId);
+            } else if (currentRoute === '/' || currentRoute === '/products') {
+                if (currentRoute === '/') {
+                    renderFeaturedProducts();
+                } else {
+                    renderProducts();
+                }
+            }
+        }
+        
+        function quickAddToCart(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            const cartItem = {
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                image: product.image,
+                quantity: 1,
+                size: product.variants.sizes[0],
+                color: product.variants.colors[0]
+            };
+            
+            const existingItem = cart.find(item => 
+                item.id === cartItem.id && 
+                item.size === cartItem.size && 
+                item.color === cartItem.color
+            );
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push(cartItem);
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            showCartAnimation();
+            renderMiniCart();
+        }
+        
+        function addToCart(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            const size = document.getElementById('size-select').value;
+            const color = document.getElementById('color-select').value;
+            const quantity = parseInt(document.getElementById('quantity-input').value);
+            
+            const cartItem = {
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                image: product.image,
+                quantity: quantity,
+                size: size,
+                color: color
+            };
+            
+            const existingItem = cart.find(item => 
+                item.id === cartItem.id && 
+                item.size === cartItem.size && 
+                item.color === cartItem.color
+            );
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push(cartItem);
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            showCartAnimation();
+            renderMiniCart();
+        }
+        
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+            document.getElementById('cart-count').classList.add('cart-badge');
+            setTimeout(() => {
+                document.getElementById('cart-count').classList.remove('cart-badge');
+            }, 500);
+        }
+        
+        function showCartAnimation() {
+            // Simple notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 right-4 bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-lg shadow-lg z-50 animate-slide-in';
+            notification.textContent = 'Item added to cart!';
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        function toggleMiniCart() {
+            const miniCart = document.getElementById('mini-cart');
+            miniCart.classList.toggle('open');
+            renderMiniCart();
+        }
+        
+        function closeMiniCart() {
+            document.getElementById('mini-cart').classList.remove('open');
+        }
+        
+        function renderMiniCart() {
+            const container = document.getElementById('mini-cart-items');
+            const totalElement = document.getElementById('mini-cart-total');
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
+                totalElement.textContent = '$0.00';
+                return;
+            }
+            
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center space-x-3 py-3 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
+                    <img src="${item.image}" alt="${item.title}" class="w-12 h-12 object-cover rounded">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-medium truncate">${item.title}</h4>
+                        <p class="text-sm text-gray-500">${item.size} • ${item.color}</p>
+                        <p class="text-sm font-medium">$${item.price} × ${item.quantity}</p>
+                    </div>
+                    <button onclick="removeFromCart(${cart.indexOf(item)})" class="text-red-500 hover:text-red-700 p-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+            
+            const total = calculateTotal();
+            totalElement.textContent = `$${total.finalTotal.toFixed(2)}`;
+        }
+        
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            renderMiniCart();
+            if (currentRoute === '/cart') {
+                renderCart();
+            }
+        }
+        
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            const emptyCart = document.getElementById('empty-cart');
+            
+            if (cart.length === 0) {
+                cartItems.classList.add('hidden');
+                emptyCart.classList.remove('hidden');
+                return;
+            }
+            
+            emptyCart.classList.add('hidden');
+            cartItems.classList.remove('hidden');
+            
+            cartItems.innerHTML = cart.map((item, index) => `
+                <div class="flex items-center space-x-4 py-6 border-b border-gray-200 dark:border-gray-700">
+                    <img src="${item.image}" alt="${item.title}" class="w-24 h-24 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h3 class="font-medium text-lg">${item.title}</h3>
+                        <p class="text-gray-600 dark:text-gray-300">${item.size} • ${item.color}</p>
+                        <p class="text-lg font-bold mt-2">$${item.price}</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="updateQuantity(${index}, ${item.quantity - 1})" class="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                            </svg>
+                        </button>
+                        <span class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded">${item.quantity}</span>
+                        <button onclick="updateQuantity(${index}, ${item.quantity + 1})" class="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 p-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+            
+            updateCartSummary();
+        }
+        
+        function updateQuantity(index, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(index);
+                return;
+            }
+            
+            cart[index].quantity = newQuantity;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCart();
+            renderMiniCart();
+        }
+        
+        function calculateTotal() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            let shipping = subtotal > 100 ? 0 : 10;
+            let discount = 0;
+            
+            if (appliedPromo) {
+                if (appliedPromo.type === 'percentage') {
+                    discount = subtotal * (appliedPromo.value / 100);
+                } else if (appliedPromo.type === 'fixed') {
+                    discount = appliedPromo.value;
+                } else if (appliedPromo.type === 'shipping') {
+                    shipping = appliedPromo.value;
+                }
+            }
+            
+            const finalTotal = Math.max(0, subtotal + shipping - discount);
+            
+            return {
+                subtotal,
+                shipping,
+                discount,
+                finalTotal
+            };
+        }
+        
+        function updateCartSummary() {
+            const total = calculateTotal();
+            
+            document.getElementById('cart-subtotal').textContent = `$${total.subtotal.toFixed(2)}`;
+            document.getElementById('cart-shipping').textContent = `$${total.shipping.toFixed(2)}`;
+            document.getElementById('cart-discount').textContent = `-$${total.discount.toFixed(2)}`;
+            document.getElementById('cart-final-total').textContent = `$${total.finalTotal.toFixed(2)}`;
+        }
+        
+        function applyPromoCode() {
+            const code = document.getElementById('promo-code').value.toUpperCase();
+            const promo = promoCodes[code];
+            
+            if (!promo) {
+                alert('Invalid promo code');
+                return;
+            }
+            
+            appliedPromo = promo;
+            localStorage.setItem('appliedPromo', JSON.stringify(appliedPromo));
+            updateCartSummary();
+            
+            // Show success message
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+            notification.textContent = `Promo code applied: ${promo.description}`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        function renderCheckout() {
+            const total = calculateTotal();
+            const itemsContainer = document.getElementById('checkout-items');
+            
+            itemsContainer.innerHTML = cart.map(item => `
+                <div class="flex justify-between items-center">
+                    <span>${item.title} (${item.quantity}x)</span>
+                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                </div>
+            `).join('');
+            
+            document.getElementById('checkout-subtotal').textContent = `$${total.subtotal.toFixed(2)}`;
+            document.getElementById('checkout-shipping').textContent = `$${total.shipping.toFixed(2)}`;
+            document.getElementById('checkout-tax').textContent = `$${(total.subtotal * 0.08).toFixed(2)}`;
+            document.getElementById('checkout-discount').textContent = `-$${total.discount.toFixed(2)}`;
+            document.getElementById('checkout-total').textContent = `$${(total.finalTotal + total.subtotal * 0.08).toFixed(2)}`;
+            
+            // Prepare order data for form submission
+            const orderData = {
+                items: cart,
+                totals: total,
+                timestamp: new Date().toISOString(),
+                appliedPromo: appliedPromo
+            };
+            
+            document.getElementById('order-data').value = JSON.stringify(orderData);
+        }
+        
+        function handleCheckout(e) {
+            e.preventDefault();
+            
+            // Save order to history
+            const order = {
+                id: Date.now(),
+                items: [...cart],
+                total: calculateTotal().finalTotal,
+                date: new Date().toISOString(),
+                status: 'Processing'
+            };
+            
+            orderHistory.unshift(order);
+            localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+            
+            // Clear cart and promo
+            cart = [];
+            appliedPromo = null;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.removeItem('appliedPromo');
+            updateCartCount();
+            
+            // Navigate to confirmation
+            navigateTo('/confirmation');
+        }
+        
+        function renderOrderConfirmation() {
+            const latestOrder = orderHistory[0];
+            if (!latestOrder) {
+                navigateTo('/');
+                return;
+            }
+            
+            const detailsContainer = document.getElementById('order-details');
+            detailsContainer.innerHTML = `
+                <h3 class="font-medium mb-3">Order #${latestOrder.id}</h3>
+                <div class="space-y-2 mb-4">
+                    ${latestOrder.items.map(item => `
+                        <div class="flex justify-between">
+                            <span>${item.title} (${item.quantity}x)</span>
+                            <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="border-t pt-2">
+                    <div class="flex justify-between font-bold">
+                        <span>Total:</span>
+                        <span>$${latestOrder.total.toFixed(2)}</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-3">Order placed on ${new Date(latestOrder.date).toLocaleDateString()}</p>
+            `;
+        }
+        
+        function renderAccount() {
+            renderOrderHistory();
+            renderRecentlyViewed();
+            renderWishlist();
+        }
+        
+        function renderOrderHistory() {
+            const container = document.getElementById('order-history');
+            
+            if (orderHistory.length === 0) {
+                container.innerHTML = '<p class="text-gray-500">No orders yet</p>';
+                return;
+            }
+            
+            container.innerHTML = orderHistory.map(order => `
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-medium">Order #${order.id}</h4>
+                        <span class="text-sm text-gray-500">${order.status}</span>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                        ${new Date(order.date).toLocaleDateString()}
+                    </p>
+                    <p class="font-bold">Total: $${order.total.toFixed(2)}</p>
+                    <p class="text-sm text-gray-500 mt-1">
+                        ${order.items.length} item${order.items.length !== 1 ? 's' : ''}
+                    </p>
+                </div>
+            `).join('');
+        }
+        
+        function renderRecentlyViewed() {
+            const container = document.getElementById('recently-viewed');
+            
+            if (recentlyViewed.length === 0) {
+                container.innerHTML = '<p class="text-gray-500">No recently viewed items</p>';
+                return;
+            }
+            
+            container.innerHTML = recentlyViewed.map(product => `
+                <div class="flex items-center space-x-3 p-3 bg-white dark:bg-gray-800 rounded-lg shadow">
+                    <img src="${product.image}" alt="${product.title}" class="w-12 h-12 object-cover rounded">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-medium truncate">
+                            <a href="#/product/${product.id}" class="hover:text-gray-600 dark:hover:text-gray-300">
+                                ${product.title}
+                            </a>
+                        </h4>
+                        <p class="text-sm text-gray-500">$${product.price}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderWishlist() {
+            const container = document.getElementById('wishlist');
+            
+            if (wishlist.length === 0) {
+                container.innerHTML = '<p class="text-gray-500">No items in wishlist</p>';
+                return;
+            }
+            
+            container.innerHTML = wishlist.map(product => `
+                <div class="flex items-center space-x-3 p-3 bg-white dark:bg-gray-800 rounded-lg shadow">
+                    <img src="${product.image}" alt="${product.title}" class="w-12 h-12 object-cover rounded">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-medium truncate">
+                            <a href="#/product/${product.id}" class="hover:text-gray-600 dark:hover:text-gray-300">
+                                ${product.title}
+                            </a>
+                        </h4>
+                        <p class="text-sm text-gray-500">$${product.price}</p>
+                    </div>
+                    <button onclick="toggleWishlist(${product.id})" class="text-red-500 hover:text-red-700 p-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+        }
+    </script>
 </body>
 </html>
